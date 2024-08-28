@@ -9,3 +9,6 @@ npm create vite@latest
 2. npm install
 
 3. npm run dev
+
+4. crear carpetas src/components y src/pages
+
