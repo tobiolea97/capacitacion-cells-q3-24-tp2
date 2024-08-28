@@ -45,16 +45,20 @@ export class LoginComponent extends LitElement {
 
   _handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const username = formData.get("username");
-    const password = formData.get("password");
-    console.log("username", this.username);
-    console.log("password", this.password);
+    if (this.username === "admin" && this.password === "admin") {
+      this._fireEvent("login", { username: this.username });
+    }
   }
 
   _handleInput(event) {
     const { name, value } = event.target;
     this[name] = value;
+  }
+
+  _fireEvent(eventName, detail) {
+    this.dispatchEvent(
+      new CustomEvent(eventName, { detail, bubbles: true, composed: true })
+    );
   }
 
   render() {
