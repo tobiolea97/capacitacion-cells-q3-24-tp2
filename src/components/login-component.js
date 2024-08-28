@@ -8,6 +8,12 @@ export class LoginComponent extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.username = "";
+    this.password = "";
+  }
+
   static styles = [
     css`
       :host {
@@ -37,13 +43,37 @@ export class LoginComponent extends LitElement {
     `,
   ];
 
+  _handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const username = formData.get("username");
+    const password = formData.get("password");
+    console.log("username", this.username);
+    console.log("password", this.password);
+  }
+
+  _handleInput(event) {
+    const { name, value } = event.target;
+    this[name] = value;
+  }
+
   render() {
     return html`
-      <form id="formLogin">
+      <form id="formLogin" @submit=${this._handleSubmit}>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" />
+        <input
+          @input=${this._handleInput}
+          type="text"
+          id="username"
+          name="username"
+        />
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
+        <input
+          @input=${this._handleInput}
+          type="password"
+          id="password"
+          name="password"
+        />
         <button type="submit">Login</button>
       </form>
     `;
