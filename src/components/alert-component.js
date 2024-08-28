@@ -19,6 +19,12 @@ export class AlertComponent extends LitElement {
         background-color: #f44336;
         color: white;
         margin-bottom: 15px;
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 300px;
+        min-height: 50px;
       }
 
       .alert.success {
