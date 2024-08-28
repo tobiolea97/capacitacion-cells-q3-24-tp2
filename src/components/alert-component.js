@@ -15,8 +15,10 @@ export class AlertComponent extends LitElement {
       }
 
       .alert {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 20px;
-        background-color: #f44336;
         color: white;
         margin-bottom: 15px;
         position: fixed;

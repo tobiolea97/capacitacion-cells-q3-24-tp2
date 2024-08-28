@@ -24,7 +24,6 @@ export class LoginPage extends LitElement {
   ];
 
   _handleLoginSuccess(event) {
-    console.log("Login success");
     const { username } = event.detail;
     const alertComponent = this.shadowRoot.querySelector("alert-component");
     alertComponent.message = `Welcome, ${username}`;
@@ -32,7 +31,6 @@ export class LoginPage extends LitElement {
   }
 
   _handleLoginError(event) {
-    console.log("Login error");
     const alertComponent = this.shadowRoot.querySelector("alert-component");
     alertComponent.message = "Invalid username or password";
     alertComponent.type = "error";
