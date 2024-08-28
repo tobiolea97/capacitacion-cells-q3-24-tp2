@@ -46,7 +46,13 @@ export class LoginComponent extends LitElement {
   _handleSubmit(event) {
     event.preventDefault();
     if (this.username === "admin" && this.password === "admin") {
-      this._fireEvent("login", { username: this.username });
+      this._fireEvent("login-component:login-success", {
+        username: this.username,
+      });
+    } else {
+      this._fireEvent("login-component:login-error", {
+        message: "Wrong username or password",
+      });
     }
   }
 
