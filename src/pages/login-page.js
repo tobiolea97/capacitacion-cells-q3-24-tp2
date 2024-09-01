@@ -8,12 +8,14 @@ export class LoginPage extends LitElement {
   static get properties() {
     return {
       _alertMessage: { type: String, state: true },
+      _alertType: { type: String, state: true },
     };
   }
 
   constructor() {
     super();
     this._alertMessage = "";
+    this._alertType = "";
   }
 
   static styles = [
@@ -27,14 +29,14 @@ export class LoginPage extends LitElement {
   _handleLoginSuccess(event) {
     const { username } = event.detail;
     const alertComponent = this.shadowRoot.querySelector("alert-component");
-    alertComponent.message = `Welcome, ${username}`;
-    alertComponent.type = "success";
+    this._alertMessage = `Welcome, ${username}`;
+    this._alertType = "success";
   }
 
   _handleLoginError(event) {
     const alertComponent = this.shadowRoot.querySelector("alert-component");
-    alertComponent.message = "Invalid username or password";
-    alertComponent.type = "error";
+    this._alertMessage = "Invalid username or password";
+    this._alertType = "error";
   }
 
   render() {
@@ -44,7 +46,7 @@ export class LoginPage extends LitElement {
           @login-component:login-success=${this._handleLoginSuccess}
           @login-component:login-error=${this._handleLoginError}
         ></login-component>
-        <alert-component .message=${this._alertMessage}></alert-component>
+        <alert-component .message=${this._alertMessage} .type=${this._alertType}></alert-component>
       </public-layout>
     `;
   }

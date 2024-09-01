@@ -36,7 +36,7 @@ export class AlertComponent extends LitElement {
         background-color: #2196f3;
       }
       .alert.error {
-        background-color: #ff9800;
+        background-color: #CC5D61;
       }
     `,
   ];
