@@ -27,13 +27,20 @@ export class LoginPage extends AuthMixin(LitElement) {
     `,
   ];
 
+  connectedCallback() {
+    super.connectedCallback();
+    if (localStorage.getItem("username")) {
+      Router.go("/home");
+    }
+  }
+
   _handleLoginSuccess(event) {
     this.method1();
     const { username } = event.detail;
     const alertComponent = this.shadowRoot.querySelector("alert-component");
     this._alertMessage = `Welcome, ${username}`;
     this._alertType = "success";
-    localStorage.setItem('username', username);
+    localStorage.setItem("username", username);
     Router.go("/home");
   }
 

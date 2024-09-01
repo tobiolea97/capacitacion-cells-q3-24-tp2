@@ -73,7 +73,6 @@ export class HomePage extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    debugger;
     if (!localStorage.getItem('username')) {
       Router.go("/login");
     }
