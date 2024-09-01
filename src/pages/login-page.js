@@ -33,6 +33,7 @@ export class LoginPage extends AuthMixin(LitElement) {
     const alertComponent = this.shadowRoot.querySelector("alert-component");
     this._alertMessage = `Welcome, ${username}`;
     this._alertType = "success";
+    localStorage.setItem('username', username);
     Router.go("/home");
   }
 

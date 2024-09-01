@@ -26,7 +26,7 @@ export class PrivateLayout extends LitElement {
         height: 80vh;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: start;
       }
 
       .footer {

@@ -39,6 +39,7 @@ export class HomePage extends LitElement {
         gap: 1rem;
         align-items: center;
         max-width: 800px;
+        padding: 2rem;
       }
 
       .footer a {
@@ -66,16 +67,26 @@ export class HomePage extends LitElement {
 
   static get properties() {
     return {
-      currentUser: { type: String },
+      username: { type: String },
     };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    debugger;
+    if (!localStorage.getItem('username')) {
+      Router.go("/login");
+    }
+    this.username = localStorage.getItem('username') || 'Usuario';
   }
 
   constructor() {
     super();
-    this.currentUser = "John Doe";
+    this.username = "John Doe";
   }
 
   logout() {
+    localStorage.removeItem('username');
     Router.go("/login");
   }
 
@@ -88,7 +99,7 @@ export class HomePage extends LitElement {
             <a>Lit Element</a>
             <a>Cells</a>
             <a>|</a>
-            <h4>Bienvenido, ${this.currentUser}</h4>
+            <h4>Bienvenido, ${this.username}</h4>
             <a @click="${this.logout}"><img src="logout.png" /></a>
           </dile-nav>
           <h2 slot="title">BBVA</h2>
