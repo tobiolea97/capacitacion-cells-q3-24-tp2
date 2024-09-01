@@ -11,7 +11,7 @@ export class AlertComponent extends LitElement {
   static styles = [
     css`
       :host {
-        display: block;
+        display: var(--display, block);
       }
 
       .alert {
@@ -35,7 +35,7 @@ export class AlertComponent extends LitElement {
       .alert.info {
         background-color: #2196f3;
       }
-      .alert.warning {
+      .alert.error {
         background-color: #ff9800;
       }
     `,
@@ -45,6 +45,12 @@ export class AlertComponent extends LitElement {
     super();
     this.message = "";
     this.type = "info";
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('message')) {
+      this.style.setProperty('--display', this.message ? 'block' : 'none');
+    }
   }
 
   render() {
