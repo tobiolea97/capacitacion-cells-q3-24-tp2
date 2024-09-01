@@ -14,6 +14,7 @@ export class PublicLayout extends LitElement {
       }
       .public-layout {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;

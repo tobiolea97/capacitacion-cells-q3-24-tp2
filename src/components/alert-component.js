@@ -19,14 +19,11 @@ export class AlertComponent extends LitElement {
         justify-content: center;
         align-items: center;
         padding: 20px;
+        margin-top: 3rem;
         color: white;
         margin-bottom: 15px;
-        position: fixed;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 300px;
-        min-height: 50px;
+        min-width: auto;
+        min-height: auto;
       }
 
       .alert.success {
