@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import "../components/login-component.js";
 import "../components/alert-component.js";
+import "../layouts/public-layout.js";
 import { state } from "lit/decorators.js";
 
 export class LoginPage extends LitElement {
@@ -38,12 +39,13 @@ export class LoginPage extends LitElement {
 
   render() {
     return html`
-      <login-component
-        @login-component:login-success=${this._handleLoginSuccess}
-        @login-component:login-error=${this._handleLoginError}
-      ></login-component>
-      <!-- EL PUNTITO VA PARA MANTENER SINCRONIZADO EL PARAMETRO-->
-      <alert-component .message=${this._alertMessage}></alert-component>
+      <public-layout>
+        <login-component
+          @login-component:login-success=${this._handleLoginSuccess}
+          @login-component:login-error=${this._handleLoginError}
+        ></login-component>
+        <alert-component .message=${this._alertMessage}></alert-component>
+      </public-layout>
     `;
   }
 }
