@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { AuthMixin } from "../mixins/auth-mixin";
+import { Router } from "@vaadin/router";
 import "../components/login-component.js";
 import "../components/alert-component.js";
 import "../layouts/public-layout.js";
@@ -32,6 +33,7 @@ export class LoginPage extends AuthMixin(LitElement) {
     const alertComponent = this.shadowRoot.querySelector("alert-component");
     this._alertMessage = `Welcome, ${username}`;
     this._alertType = "success";
+    Router.go("/home");
   }
 
   _handleLoginError(event) {

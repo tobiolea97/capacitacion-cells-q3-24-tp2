@@ -18,6 +18,8 @@ export class LoginComponent extends LitElement {
     css`
       :host {
         display: block;
+        background-color: #000a;
+        padding: 7.5rem;
       }
       form {
         display: flex;

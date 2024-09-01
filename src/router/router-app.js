@@ -11,6 +11,15 @@ export class RouterApp extends LitElement {
     ]);
   }
 
+  static styles = [
+    css`
+      :host {
+        display: block;
+        width: 100%;
+      }
+    `,
+  ];
+
   render() {
     return html` <div id="outlet"></div>`;
   }

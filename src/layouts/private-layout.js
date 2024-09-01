@@ -1,7 +1,6 @@
 import { LitElement, html, css } from "lit";
-import { AuthMixin } from "../mixins/auth-mixin";
 
-export class PrivateLayout extends AuthMixin(LitElement) {
+export class PrivateLayout extends LitElement {
   static get properties() {
     return {
       title: { type: String },
@@ -18,23 +17,25 @@ export class PrivateLayout extends AuthMixin(LitElement) {
       }
 
       .header {
-        background-color: #333;
+        background-color: #444;
         color: white;
-        padding: 1rem;
-        height: 5rem;
+        height: 10vh
       }
 
       .main {
-        flex: 1;
-        padding: 1rem;
-        height: auto;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .footer {
-        background-color: #333;
+        background-color: #ddd;
         color: white;
-        padding: 1rem;
-        height: 5rem;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     `,
   ];
