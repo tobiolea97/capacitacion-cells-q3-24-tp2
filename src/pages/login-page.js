@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
+import { AuthMixin } from "../mixins/auth-mixin";
 import "../components/login-component.js";
 import "../components/alert-component.js";
 import "../layouts/public-layout.js";
-import { AuthMixin } from "../mixins/auth-mixin";
 
 export class LoginPage extends AuthMixin(LitElement) {
   static get properties() {

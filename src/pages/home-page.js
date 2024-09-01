@@ -11,7 +11,15 @@ export class HomePage extends LitElement {
   ];
 
   render() {
-    return html` <private-layout></private-layout> `;
+    return html`
+      <private-layout>
+        <dile-nav>
+          <h2 slot="title">Nav title</h2>
+          <span slot="menu">[x]</span>
+          <span slot="actions">Create</span>
+        </dile-nav>
+      </private-layout>
+    `;
   }
 }
 customElements.define("home-page", HomePage);
